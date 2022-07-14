@@ -1,16 +1,9 @@
 class User {
-  name = '';
-  lastName = '';
-  books = [];
-  pets = [];
-
   constructor(name, lastName, books, pets) {
     this.name = name;
     this.lastName = lastName;
     this.books = books;
     this.pets = pets;
-
-
   }
 
   getFullName() {
@@ -21,7 +14,18 @@ class User {
     this.pets.push(petName)
   }
 
-  addBooks(title, author) {
+  getBookNames() {
+    const bookNames = this.books.map(book => {
+      return book.title
+    })
+    return bookNames
+  }
+
+  countPets() {
+    return this.pets.length;
+  }
+
+  addBook(title, author) {
     const book = {
       title, author
     }
@@ -40,9 +44,14 @@ const books = [
   },
 ]
 
-
 const pets = ['Bella', 'Bondiola']
 
 const user = new User('Joan', 'Vila', books, pets)
 
-console.log(user)
+user.addBook('La rueda del tiempo', 'Brandon Sanderson');
+
+user.addPet('Scooby');
+
+console.log(`El nombre completo del usuario es: ${user.getFullName()}`);
+console.log(`Los libros que lee el usuario son: ${user.getBookNames()}`);
+console.log(`Las mascotas del usuario son: ${user.pets}`);
