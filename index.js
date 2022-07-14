@@ -1,4 +1,9 @@
 class User {
+  name = '';
+  lastName = '';
+  books = [];
+  pets = [];
+
   constructor(name, lastName, books, pets) {
     this.name = name;
     this.lastName = lastName;
